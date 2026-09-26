@@ -49,15 +49,18 @@ int bitXor(int x, int y) {
  * Returns:
  *   1 if x and y have the same sign , 0 otherwise.
  */
-int samesign(int x, int y) {
-    if(!x && !y)return 1;//都是0
-    if(!x)return 0;
+int samesign(int x,int y){
+    // if(!x && !y)return 1;//都是0
+    // if(!x)return 0;
+    // if(!y)return 0;
+    // int sign_x=x>>31;//提取最高位
+    // int sign_y=y>>31;
+    // if(!sign_x && !sign_y)return 1;
+    // if(sign_x && sign_y)return 1;
+    // return 0;
+    if(!x)return !y;
     if(!y)return 0;
-    int sign_x=x>>31;//提取最高位
-    int sign_y=y>>31;
-    if(!sign_x && !sign_y)return 1;
-    if(sign_x && sign_y)return 1;
-    return 0;
+    return !((x^y)>>31);
     
 }
 
