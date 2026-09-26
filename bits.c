@@ -19,7 +19,7 @@
  * Difficulty: 1
  */
 int bitAnd(int x, int y) {
-    return ~(~x|~y);
+    return ~(~x|~y);//韦恩图
 }
 
 /*
