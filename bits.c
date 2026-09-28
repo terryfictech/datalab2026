@@ -19,7 +19,7 @@
  * Difficulty: 1
  */
 int bitAnd(int x, int y) {
-    return ~(~x|~y);//韦恩图
+    return ~(~x|~y);//韦恩图 
 }
 
 /*
@@ -242,10 +242,12 @@ unsigned floatScale2(unsigned uf) {
     unsigned sign=uf&0x80000000;
     unsigned exp=(uf>>23)&0xFF;
     unsigned frac=uf&0x7FFFFF;
-    if(exp==0xFF)return uf;
+    if(exp==0xFF)return uf;//NaN和正无穷都直接返回原值即可
     if(exp==0)frac<<=1;//非格式化的才进位
     else{//格式化的直接给阶数+1
         exp++;
+        if(exp==0xFF)//exp本为254+1后变255，变成INF
+        frac=0;
     }
     unsigned ans=0;
     ans|=sign;
